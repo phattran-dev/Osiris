@@ -11,3 +11,6 @@
   - `Interfaces`: Contains interfaces that define the structure of entities used in the Infrastructure layer of other projects.
   - `Enums`: Contains enumerations that are used in entities across various API Service Projects.
   - `Constants`: Contains constant values that are shared across different parts of other API Service projects.
+
+# 4/ AI Agent Rules
+- AI agents must not modify or add any business logic, concrete implementations, or dependencies to this project.
