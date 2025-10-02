@@ -1,4 +1,4 @@
-﻿namespace Domain.EntityEnums
+﻿namespace Domain.Enums
 {
     public enum OneTimeAuthAction
     {
