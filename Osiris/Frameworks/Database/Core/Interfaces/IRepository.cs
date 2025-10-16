@@ -12,6 +12,11 @@ namespace Database.Core.Interfaces
         DbSet<TEntity> Entities();
 
         /// <summary>
+        /// Directly accesses the non-deleted entities (entities that have the SoftDelete feature and where IsDeleted = false) in this repository. Used for complex queries and easier query optimization.
+        /// </summary>
+        IQueryable<TEntity> QueryAvailableEntities();
+
+        /// <summary>
         /// Add an entity record without requiring AuthorAudited
         /// </summary>
         Task AddAsync(TEntity entity, CancellationToken cancellationToken = default);

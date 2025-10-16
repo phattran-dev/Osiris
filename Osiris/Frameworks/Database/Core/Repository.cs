@@ -16,6 +16,15 @@ namespace Database.Core
 
         public DbSet<TEntity> Entities() => _dbContext.Set<TEntity>();
 
+        public IQueryable<TEntity> QueryAvailableEntities()
+        {
+            if (typeof(ISoftDeleteAudited).IsAssignableFrom(typeof(TEntity)))
+            {
+                return _dbContext.Set<TEntity>().Where(e => !(e as ISoftDeleteAudited).IsDeleted);
+            }
+            return _dbContext.Set<TEntity>();
+        }
+
         public async Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             ProcessDateAudited(entity, false);
