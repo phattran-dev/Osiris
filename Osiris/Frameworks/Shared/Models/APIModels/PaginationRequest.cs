@@ -18,8 +18,18 @@ namespace Shared.Models.APIModels
 
     public class QueryField
     {
-        public string? FieldName { get; set; }
+        private string _fieldName = string.Empty;
+        public string FieldName
+        {
+            get => _fieldName;
+            set => _fieldName = value?.ToLowerInvariant();
+        }
         public string? QueryString { get; set; }
         public SortDirection? SortDirection { get; set; }
+        public ComparisonCondition? ComparisonCondition { get; set; }
+        /// <summary>
+        /// Use for combining multiple QueryFields with AND/OR logic
+        /// </summary>
+        public LogicalOperator? LogicalOperator { get; set; } = Enums.LogicalOperator.And;
     }
 }

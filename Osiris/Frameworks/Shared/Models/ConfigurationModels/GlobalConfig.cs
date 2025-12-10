@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.ConfigurationModels
 {
-    public class CommonConfig
+    public class GlobalConfig
     {
         public int? OneTimeTokenExpirationInMinutes { get; set; }
     }

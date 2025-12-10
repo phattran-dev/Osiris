@@ -6,7 +6,6 @@ using Shared.Models.APIModels;
 using System.Text;
 using System.Text.Json;
 
-
 namespace Shared.Middlewares
 {
     public sealed class GlobalExpectionMiddleware
@@ -42,6 +41,9 @@ namespace Shared.Middlewares
                     case NotFoundException _:
                         _httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
                         break;
+                    default:
+                        _httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                        break;
                 }
 
                 _logger.LogError(ex, $"An unhandled exception occurred. Something went wrong! StatusCode: {_httpContext.Response.StatusCode} \n Message:{ex.Message}; \n StackTrace: {ex.StackTrace}");
@@ -51,7 +53,7 @@ namespace Shared.Middlewares
             }
         }
 
-
+        #region Private Helper Methods
         private string GetStringJsonResponse(Exception ex)
         {
             if (IsMessageFormattedAsApiResponse(ex.Message))
@@ -88,5 +90,6 @@ namespace Shared.Middlewares
                 return false;
             }
         }
+        #endregion Private Helper Methods
     }
 }
