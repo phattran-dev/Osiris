@@ -1,20 +1,55 @@
-﻿using Shared.Models.APIModels;
-using System.Text.Json;
-
-namespace Shared.Exceptions
+﻿namespace Shared.Exceptions
 {
-    public class NotFoundException : Exception
+    public class BaseCustomException : Exception
     {
-        public NotFoundException(Dictionary<string, string> errors) : base(JsonSerializer.Serialize(BaseApiResponse<object>.FailureResponse(errors))) { }
+        public string ErrorCode { get; set; }
+        public string? CustomMessage { get; set; }
+
+        public BaseCustomException(string errorCode, string customMessage, params object[]? parameters)
+        {
+            ErrorCode = errorCode;
+            CustomMessage = parameters != null ? string.Format(customMessage, parameters) : customMessage;
+        }
     }
 
-    public class UnauthorizedException : Exception
+    public class NotFoundException : BaseCustomException
     {
-        public UnauthorizedException(Dictionary<string, string> errors) : base(JsonSerializer.Serialize(BaseApiResponse<object>.FailureResponse(errors))) { }
+        public string? FieldName { get; set; }
+        public string? LookupValue { get; set; }
+
+        public NotFoundException(string errorCode, string customMessage, params object[]? parameters)
+            : base(errorCode, customMessage, parameters)
+        {
+        }
+
+        public NotFoundException(string errorCode, string? fieldName, string? lookupValue) : base(errorCode, string.Empty)
+        {
+            FieldName = fieldName;
+            LookupValue = lookupValue;
+        }
     }
 
-    public class SecurityException : Exception
+    public class UnauthorizedException : BaseCustomException
     {
-        public SecurityException(Dictionary<string, string> errors) : base(JsonSerializer.Serialize(BaseApiResponse<object>.FailureResponse(errors))) { }
+        public UnauthorizedException(string errorCode, string customMessage, params object[]? parameters)
+           : base(errorCode, customMessage, parameters)
+        {
+        }
+    }
+
+    public class SecurityException : BaseCustomException
+    {
+        public SecurityException(string errorCode, string customMessage, params object[]? parameters)
+            : base(errorCode, customMessage, parameters)
+        {
+        }
+    }
+
+    public class BadRequestException : BaseCustomException
+    {
+        public BadRequestException(string errorCode, string customMessage, params object[]? parameters)
+             : base(errorCode, customMessage, parameters)
+        {
+        }
     }
 }

@@ -24,13 +24,13 @@
         /// Add more information for error message
         /// </summary>
         /// <returns>Error Message - [Additional Information]</returns>
-        public static Dictionary<string, string> GetMessageDictionary(string errorCode, string? additionalInformation = null, params object[]? parameters)
+        public static Dictionary<string, string?> GetMessageDictionary(string errorCode, string? additionalInformation = null, params object[]? parameters)
         {
             var errroMessage = string.IsNullOrWhiteSpace(additionalInformation) ?
                 GetMessage(errorCode, parameters) :
                 $"{GetMessage(errorCode, parameters)} \n ###Details: {additionalInformation}";
 
-            return new Dictionary<string, string> { { errorCode, errroMessage } };
+            return new Dictionary<string, string?> { { errorCode, errroMessage } };
         }
 
         #region Private Methods

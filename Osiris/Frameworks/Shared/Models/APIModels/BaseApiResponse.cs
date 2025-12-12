@@ -3,10 +3,13 @@
     public class BaseApiResponse<TData>
     {
         public TData? Data { get; set; }
-        public Dictionary<string, string>? Errors { get; set; }
-        public Dictionary<string, string>? Messages { get; set; }
+        /// <summary>
+        /// {ErrorCode, Message}
+        /// </summary>
+        public Dictionary<string, string?>? Errors { get; set; }
+        public string? Messages { get; set; }
 
-        public static BaseApiResponse<TData?> SuccessResponse(TData? data, Dictionary<string, string>? messages = null)
+        public static BaseApiResponse<TData?> SuccessResponse(TData? data, string? messages = null)
         {
             return new BaseApiResponse<TData?>
             {
@@ -16,7 +19,7 @@
             };
         }
 
-        public static BaseApiResponse<TData?> FailureResponse(Dictionary<string, string>? errors = null, TData? data = null)
+        public static BaseApiResponse<TData?> FailureResponse(Dictionary<string, string?>? errors = null, TData? data = default)
         {
             return new BaseApiResponse<TData?>
             {
