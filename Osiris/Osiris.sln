@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36221.1
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServices", "IdentityServices", "{781AD46A-151A-4BE8-AEC3-B11DED429178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osiris.IdentityService.API", "APIServices\IdentityServices\Osiris.IdentityService.API\Osiris.IdentityService.API.csproj", "{986D55E7-3D0F-41A9-BD17-0A1B773AA738}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +96,10 @@ Global
 		{5A0AD792-8597-484F-9B45-2E7CA8AC1209}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A0AD792-8597-484F-9B45-2E7CA8AC1209}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A0AD792-8597-484F-9B45-2E7CA8AC1209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986D55E7-3D0F-41A9-BD17-0A1B773AA738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986D55E7-3D0F-41A9-BD17-0A1B773AA738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986D55E7-3D0F-41A9-BD17-0A1B773AA738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986D55E7-3D0F-41A9-BD17-0A1B773AA738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +118,7 @@ Global
 		{0A9E42EB-D575-4528-9201-3973E50FE024} = {5E76FEAA-3001-46AE-95E6-3C625A2DD587}
 		{5A0AD792-8597-484F-9B45-2E7CA8AC1209} = {5E76FEAA-3001-46AE-95E6-3C625A2DD587}
 		{781AD46A-151A-4BE8-AEC3-B11DED429178} = {3EAF3530-9900-412C-B38D-E0A8AF84EBAF}
+		{986D55E7-3D0F-41A9-BD17-0A1B773AA738} = {781AD46A-151A-4BE8-AEC3-B11DED429178}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48D1C8BD-23BA-4F98-9E23-3721CB74300C}

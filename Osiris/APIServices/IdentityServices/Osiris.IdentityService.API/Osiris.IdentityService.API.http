@@ -1,0 +1,6 @@
+@Osiris.IdentityService.API_HostAddress = http://localhost:5271
+
+GET {{Osiris.IdentityService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
